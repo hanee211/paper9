@@ -100,7 +100,7 @@ def train():
 				
 				start = 0
 				for i in range(int(total_size/batch_size) + 1):
-					if i >= 1200:
+					if i*batch_size >= 1200:
 						break
 					start_time_in = dt.datetime_now()
 					
