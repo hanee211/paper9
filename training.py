@@ -100,6 +100,10 @@ def train():
 				
 				start = 0
 				for i in range(int(total_size/batch_size) + 1):
+					if i >= 1200:
+						break
+					start_time_in = dt.datetime_now()
+					
 					print("processing", i)
 					end = start + batch_size
 					
@@ -143,7 +147,8 @@ def train():
 					_cost, _ = sess.run([model.cost, model.train], feed_dict=feed_decoder)
 
 					start = end
-				
+					print("Take", str((dt.datetime.now() - start_time_in).seconds), "seconds for ", batch_size, "batch_size")
+					
 				print("Take", str((dt.datetime.now() - start_time).seconds), "seconds for 1 cycles")
 				
 			
